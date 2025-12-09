@@ -30,6 +30,10 @@ public class ArrayExercises {
         multiplicationTable();  //Exercise 10
 
         reverseArray(); //Exercise 11
+
+        diagonalElements();   //Exercise 12
+
+        displayEvenOddNumbers(); //Exercise 13
     }
 
     /*
@@ -241,5 +245,62 @@ public class ArrayExercises {
         for (int i = index2-1; i >= 0 ; i--) {
             System.out.print(number6[i] + " ");
         }
+    }
+
+    /*
+    This method will print the diagonal elements of two-dimensional array.
+     */
+    void diagonalElements() {
+        int[][] numbers7 = {{1,2,3}, {2,4,6}, {3,6,9}};
+
+        //print 3*3 matrix
+        for (int i = 0; i < numbers7.length; i++) {
+            for (int j = 0; j < numbers7[i].length; j++) {
+                System.out.print(numbers7[i][j] + "  ");
+            }
+            System.out.println();
+        }
+
+        //print diagonal elements
+        System.out.print("Diagonal Elements: ");
+        for (int i = 0; i < numbers7.length; i++) {
+            for (int j = 0; j < numbers7[i].length; j++) {
+                if(i == j) {
+                    System.out.print(numbers7[i][j] + "  ");
+                }
+            }
+        }
+    }
+
+    /*
+    This method generates the random numbers of array and then
+    arranges the odd numbers on the left side of the array and
+    even numbers on the right side of the array.
+     */
+    void displayEvenOddNumbers() {
+        int size = 10;
+        int left = 0;
+        int right = size - 1;
+        int[] randomArray = new int[size];
+        int[] evenOddArray = new int[size];
+
+        //Random Array
+        for (int i = 0; i < size; i++) {
+            randomArray[i] = (int) (Math.random() * 100);
+        }
+
+        for (int i = 0; i < randomArray.length; i++) {
+            if (randomArray[i] % 2 != 0) {
+                evenOddArray[left] = randomArray[i];
+                left++;
+            } else {
+                evenOddArray[right] = randomArray[i];
+                right--;
+            }
+        }
+        System.out.print("Random Array: ");
+        System.out.println(Arrays.toString(randomArray));
+        System.out.print("Odd Even rearranged Array: ");
+        System.out.println(Arrays.toString(evenOddArray));
     }
 }
