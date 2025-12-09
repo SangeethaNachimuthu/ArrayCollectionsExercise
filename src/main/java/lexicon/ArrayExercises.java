@@ -17,6 +17,12 @@ public class ArrayExercises {
         copyOfElements();  //Exercise 4
 
         twoDimensionalArray();  //Exercise 5
+
+        findAverage();  //Exercise 6
+
+        printOddNumbers();  //Exercise 7
+
+        removeDuplicates(); //Exercise 8
     }
 
     /*
@@ -97,6 +103,78 @@ public class ArrayExercises {
                 System.out.print(twoDimArray[i][j] + " ");
             }
             System.out.println();
+        }
+    }
+
+    /*
+    This method will find the average of the list of numbers.
+     */
+    void findAverage() {
+        int[] numbers2 = new int[] {43, 5, 23, 17, 2, 14};
+        int total = 0;
+        float average = 0.0f;
+        for (int i = 0; i < numbers2.length; i++) {
+            total = total + numbers2[i];
+        }
+        average = (float) total / numbers2.length;
+        System.out.print("Average is: ");
+        System.out.printf("%.1f" , average);
+    }
+
+    /*
+    This method will find and print the odd numbers in the array.
+     */
+    void printOddNumbers() {
+        int[] numbers3 = new int[] {1,2,4,7,9,12,47,14,79,100};
+        int[] oddArray = new int[numbers3.length];
+        int index = 0;
+        for (int i = 0; i < numbers3.length; i++) {
+            if (numbers3[i] % 2 != 0) {
+                oddArray[index] = numbers3[i];
+                index++;
+            }
+        }
+        System.out.print("Array: ");
+        for (int i = 0; i < numbers3.length; i++) {
+            System.out.print(numbers3[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Odd Array: ");
+        for (int i = 0; i < index; i++) {
+            System.out.print(oddArray[i] + " ");
+        }
+    }
+
+    /*
+    This method will remove the duplicate entries in the array.
+     */
+    void removeDuplicates() {
+        int[] numbers4 = new int[] {20,20,40,20,30,40,50,60,50};
+        int[] withoutDupArray = new int[numbers4.length];
+        int index1 = 0;
+
+        for (int i = 1; i < numbers4.length; i++) {
+            boolean isDuplicate = false;
+            for (int j = 0; j < index1; j++) {
+                if (numbers4[i] == withoutDupArray[j]) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                withoutDupArray[index1] = numbers4[i];
+                index1++;
+            }
+        }
+
+        System.out.print("Array: ");
+        for (int i = 0; i < numbers4.length; i++) {
+            System.out.print(numbers4[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Array without duplicate values: ");
+        for (int i = 0; i < index1; i++) {
+            System.out.print(withoutDupArray[i] + " ");
         }
     }
 }
