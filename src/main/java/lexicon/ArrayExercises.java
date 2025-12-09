@@ -1,6 +1,7 @@
 package lexicon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -23,6 +24,12 @@ public class ArrayExercises {
         printOddNumbers();  //Exercise 7
 
         removeDuplicates(); //Exercise 8
+
+        expandArray();  //Exercise 9
+
+        multiplicationTable();  //Exercise 10
+
+        reverseArray(); //Exercise 11
     }
 
     /*
@@ -175,6 +182,64 @@ public class ArrayExercises {
         System.out.print("Array without duplicate values: ");
         for (int i = 0; i < index1; i++) {
             System.out.print(withoutDupArray[i] + " ");
+        }
+    }
+
+    /*
+    This method will add a new element along with the existing array.
+     */
+    void expandArray() {
+        int[] originalArray = new int[]{9,8,7,6,5};
+        int[] expandedArray = new int[originalArray.length+1];
+
+        //copy originalArray elements into expandedArray
+        for (int i = 0; i < originalArray.length; i++) {
+            expandedArray[i] = originalArray[i];
+        }
+        //Added new element in the expandedArray
+        expandedArray[expandedArray.length - 1] = 4;
+        System.out.println("Original Array: " + Arrays.toString(originalArray));
+        System.out.println("Expanded Array: " + Arrays.toString(expandedArray));
+    }
+
+    /*
+    This method prints the multiplication table in
+    multidimensional array pattern.
+     */
+    void multiplicationTable() {
+        int[][] numbers5 = new int[10][10];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                numbers5[i][j] = (i+1) * (j+1);
+                System.out.printf("%5d" , numbers5[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+    This method gets the inputs from the user and form an array.
+    Display the original array and reverse array.
+     */
+    void reverseArray() {
+        Scanner scan = new Scanner(System.in);
+        int[] number6 = new int[20];
+        int index2 = 0;
+
+        do {
+            System.out.println("Enter the number: (Number '0' to exit.)");
+            number6[index2] = scan.nextInt();
+            index2++;
+        } while (number6[index2-1] != 0);
+
+        System.out.print("Original Array: ");
+        for (int i = 0; i < index2; i++) {
+            System.out.print(number6[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Reverse Array: ");
+        for (int i = index2-1; i >= 0 ; i--) {
+            System.out.print(number6[i] + " ");
         }
     }
 }
